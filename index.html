@@ -1,0 +1,26 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UniWebView Local Test</title>
+</head>
+<body>
+  <h1>Test UniWebView Message</h1>
+  <button onclick="sendMessage()">Send Message to Unity</button>
+
+  <script>
+    function sendMessage() {
+      let message = "video ended";
+      let url = "uniwebview://action?message=" + encodeURIComponent(message);
+      console.log("Sending to Unity: " + url);
+
+      // Simulate link click to bypass iframe/browser restrictions
+      let a = document.createElement("a");
+      a.href = url;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+</body>
+</html>
